@@ -1,0 +1,484 @@
+/** 
+* Set the margins of the PDF to 0
+* so the background image will cover the entire page.
+**/
+@page {
+    margin: 0cm 0cm;
+}
+
+/**
+* Define the real margins of the content of your PDF
+* Here you will fix the margins of the header and footer
+* Of your background image.
+**/
+body {
+    margin-top:    0cm;
+    margin-bottom: 0cm;
+    margin-left:   1cm;
+    margin-right:  1cm;
+}
+
+/** 
+* Define the width, height, margins and position of the watermark.
+**/
+#watermark {
+    position: fixed;
+    bottom:   0px;
+    left:     0px;
+    /** The width and height may change 
+        according to the dimensions of your letterhead
+    **/
+    width:    21.0cm;
+    height:   29.8cm;
+
+    /** Your watermark should be behind every content**/
+    z-index:  -1000;
+}
+
+.block_ {
+    display: block;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: center;
+    text-indent: 0
+    }
+
+.block_1 {
+    display: block;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: left;
+    text-indent: 0
+    }
+.block_2 {
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.66667em;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: center;
+    text-indent: 0
+    }
+.block_3 {
+    display: block;
+    font-size: 1.77778em;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.2;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: center;
+    text-indent: 0
+    }
+.block_4 {
+    display: block;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: underline;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: center;
+    text-indent: 0
+    }
+.block_5 {
+    display: block;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: center;
+    text-indent: 0
+    }
+.block_6 {
+    display: block;
+    font-size: 0.66667em;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: center;
+    text-indent: 0
+    }
+.block_7 {
+    display: block;
+    font-size: 0.66667em;
+    text-align: justify;
+    margin-bottom: 0;
+    margin-left: 30;
+    margin-right: 30;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-indent: 0
+    }
+
+.block_99 {
+    display: block;
+    font-size: 0.66667em;
+    text-align: center;
+    margin-bottom: 0;
+    margin-left: 30;
+    margin-right: 30;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-indent: 0
+    }
+
+
+.block_8 {
+    display: block;
+    font-family: serif;
+    font-size: 0.66667em;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: left;
+    text-indent: 0
+    }
+.block_9 {
+    display: block;
+    font-family: serif;
+    font-size: 0.66667em;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: justify;
+    text-indent: 0
+    }
+.block_10 {
+    display: block;
+    font-family: serif;
+    font-size: 0.66667em;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: center;
+    text-indent: 35.4pt
+    }
+.block_11 {
+    display: block;
+    font-family: serif;
+    font-size: 0.66667em;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: justify;
+    text-indent: 35.4pt
+    }
+.block_12 {
+    display: block;
+    margin-bottom: 0;
+    margin-left: 30;
+    margin-right: 30;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-indent: 0
+    }
+    
+
+.block_121 {
+    display: block;
+    font-size: 0.66667em;
+    text-align: right;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 30;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-indent: 0
+    }
+
+
+.block_13 {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: center;
+    }
+.block_14 {
+    display: block;
+    font-family: serif;
+    font-size: 0.66667em;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: left;
+    text-indent: 49.7pt
+    }
+.block_15 {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: center;
+    text-indent: 0
+    }
+.block_16 {
+    display: block;
+    font-size: 1.25926em;
+    line-height: 1.2;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: justify;
+    text-indent: 0
+    }
+.block_17 {
+    display: block;
+    font-size: 1.25926em;
+    line-height: 1.2;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: center;
+    text-indent: 0
+    }
+.block_18 {
+    display: block;
+    font-family: serif;
+    font-size: 0.66667em;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: right;
+    text-indent: 0
+    }
+.block_19 {
+    display: block;
+    font-size: 0.66667em;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: right;
+    text-indent: 0
+    }
+.block_20 {
+    display: block;
+    font-size: 0.66667em;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: right;
+    text-indent: 0
+    }
+
+
+    
+.calibre {
+    color: black;
+    display: block;
+    font-family: "Times New Roman", serif;
+    font-size: 1.125em;
+    line-height: 1.2;
+    margin-bottom: 0;
+    margin-left: 5pt;
+    margin-right: 5pt;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0
+    }
+.calibre1 {
+    white-space: pre-wrap
+    }
+.calibre2 {
+    font-weight: bold
+    }
+.calibre3 {
+    display: block;
+    height: 44.3pt;
+    margin-left: auto;
+    margin-right: auto;
+    width: 134pt
+    }
+.calibre4 {
+    display: block;
+    height: 80.3pt;
+    margin-left: auto;
+    margin-right: auto;
+    width: 161pt
+    }
+.text_ {
+    font-size: 1.33333em;
+    font-style: italic
+    }
+.text_1 {
+    font-size: 1.5em;
+    line-height: 1.2
+    }
+.text_2 {
+    font-size: 1.33333em;
+    text-align: justify
+    /* font-weight: bold */
+    }
+.text_3 {
+    font-size: 1.33333em;
+    text-align: justify;
+    }
+.text_4 {
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1.2
+    }
+.text_5 {
+    font-family: "Times New Roman", serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1.2
+    }
+.text_6 {
+    font-family: "Times New Roman", serif;
+    font-size: 1.33333em;
+    font-weight: bold
+    }
+.text_7 {
+    font-family: "Arial", sans-serif;
+    font-size: 1.33333em;
+    font-weight: bold
+    }
+.text_8 {
+    font-family: "Arial", sans-serif;
+    font-size: 1.33333em
+    }
+
+.teoria {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.33333em;
+    text-align: left;
+    }
+
+.pratica {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.33333em;
+    text-align: center;
+    }
+
+.carga {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.33333em;
+    text-align: right;
+    }
+
+.esquerda {
+    float: left;
+}
+
+.direita {
+    float:right; 
+    display:inline;
+}

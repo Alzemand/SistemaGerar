@@ -1,0 +1,11 @@
+MYSQL 8
+Apache
+Dom pdf
+php-xml 
+php-mbstring
+php-gd 
+
+
+SQL ajuste para teste local: 
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'toor';
+
