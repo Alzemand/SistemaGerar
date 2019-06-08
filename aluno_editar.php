@@ -42,40 +42,19 @@
   </div>
 
   <?php
-  $atualizado = $_GET['atualizado'];
-  if ($atualizado == 'true') {
-    echo ('
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2 col-lg-2">
-        </div>
-        <div class="col-md-8 col-lg-8">
-          <div class="alert alert-success" role="alert">
-            <strong>Aluno atualizado com sucesso.</strong>
-          </div>
-        </div>
-        <div class="col-md-2 col-lg-2">
-        </div>
-      </div>
-    </div><br>');
-  }
-  ?>
-
-  <?php
-
-  include('header.php');
-  include('validador/mask.php');
-  include('php/conexao.php');
-  $cpf = $_GET['cpf'];
-
-  $sql = "SELECT * FROM aluno WHERE cpf='$cpf'";
-  $result = $conn->query($sql);
-
-  if ($result->num_rows > 0) {
-    // output data of each row
-    while ($row = $result->fetch_assoc()) {
-
-      echo ('
+    include('header.php');
+    include('validador/mask.php');
+    include('php/conexao.php');
+    $cpf = $_GET['cpf'];
+  
+    $sql = "SELECT * FROM aluno WHERE cpf='$cpf'";
+    $result = $conn->query($sql);
+  
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while ($row = $result->fetch_assoc()) {
+  
+        echo ('
       <div class="container">
         <div class="row">
           <div class="col-md-2 col-lg-2">
@@ -83,53 +62,52 @@
           <div class="col-md-8 col-lg-8">
             <div class="box">
               <div class="text-center icone">
-                <i class="fa fa-user"></i>
+                <i class="fa fa-pencil-square-o"></i>
                 <br>
-                <h5>Informações do aluno</h5>
+                <h5>Editar aluno</h5>
               </div><br>
               <!-- Formulário -->
-              <form method="POST" action="php\alunogravar.php">
+              <form method="POST" action="php\alunoeditar.php">
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="cpf">CPF</label>
-                      <h5>'. mask($row["cpf"], '###.###.###-##') .'</h5>
+                    <input type="text" name="cpf" class="form-control" id="cpf" value=" ' . mask($row["cpf"], '###.###.###-##') . '" placeholder="123.456.789-09" readonly>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="rg">RG</label>
-                    <h5>'. $row["rg"] . '</h5>
+                    <input type="text" name="rg" class="form-control" id="rg" value="'. $row["rg"] . '">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="nome">Nome</label>
-                  <h5>'. $row["nome"] . '</h5>
+                  <input type="text" name="nome" class="form-control" id="nome" value="'. $row["nome"] . '" placeholder="Nome completo">
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="email">E-mail</label>
-                    <h5>'. $row["email"] . '</h5>
+                    <input type="email" name="email" class="form-control" id="email" value="'. $row["email"] . '" placeholder="email@servidor.com">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="telefone">Telefone</label>
-                    <h5>'. $row["telefone"] . '</h5>
+                    <input type="text" name="telefone" class="form-control" id="telefone" value="'. $row["telefone"] . '" placeholder="">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="endereco">Endereço</label>
-                  <h5>'. $row["endereco"] . '</h5>
+                  <input type="text" name="endereco" class="form-control" id="endereco" value="'. $row["endereco"] . '" placeholder="Rua dos Bobos, nº 0 - Av. Projetada">
                 </div>
 
                 <div class="form-group">
                   <label for="profissao">Profissão</label>
-                  <h5>'. $row["profissao"] . '</h5>
+                  <input type="text" name="profissao" class="form-control" id="profissao" value="'. $row["profissao"] . '" placeholder="">
                 </div>
 
                 <div class="form-group">
                 </div>
                 <div class="modal-footer">
-                  <a class="btn btn-secondary" href="aluno_consultar.php" role="button">Voltar</a>
-                  <button type="submit" class="btn btn-danger">Apagar</button>
-                  <a class="btn btn-primary" href="aluno_editar.php?cpf='. $row["cpf"] .'" role="button">Editar</a>
+                  <button type="button" onclick="window.history.back()" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">Atualizar informações</button>
                 </div>
               </form>
             </div>
@@ -164,9 +142,8 @@
   <!-- Contact Form JavaScript File -->
   <script src="contactform/contactform.js"></script>
 
-  <script>
-
-
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
 
 
 </body>

@@ -120,6 +120,11 @@
   <script src="js/main.js"></script>
 
 
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+
 </body>
 
 </html>

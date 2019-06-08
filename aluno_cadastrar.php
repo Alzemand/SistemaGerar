@@ -154,7 +154,7 @@
             <div class="form-group">
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <a class="btn btn-secondary" href="index.php" role="button">Cancelar</a>
               <button type="submit" class="btn btn-primary">Salvar informações</button>
             </div>
           </form>
