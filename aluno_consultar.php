@@ -120,10 +120,12 @@
   <script src="js/main.js"></script>
 
 
-
-  <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
-
+<?php
+$cpf = $_GET['cpf'];
+if ($cpf == 'apagado') {
+  echo ('<script>notify("Aluno<strong> apagado</strong> com sucesso", "danger", 5000);</script>');
+}
+?>
 
 </body>
 

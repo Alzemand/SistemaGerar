@@ -42,26 +42,6 @@
   </div>
 
   <?php
-  $atualizado = $_GET['atualizado'];
-  if ($atualizado == 'true') {
-    echo ('
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2 col-lg-2">
-        </div>
-        <div class="col-md-8 col-lg-8">
-          <div class="alert alert-success" role="alert">
-            <strong>Aluno atualizado com sucesso.</strong>
-          </div>
-        </div>
-        <div class="col-md-2 col-lg-2">
-        </div>
-      </div>
-    </div><br>');
-  }
-  ?>
-
-  <?php
 
   include('header.php');
   include('validador/mask.php');
@@ -92,44 +72,44 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="cpf">CPF</label>
-                      <h5>'. mask($row["cpf"], '###.###.###-##') .'</h5>
+                      <h5>' . mask($row["cpf"], '###.###.###-##') . '</h5>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="rg">RG</label>
-                    <h5>'. $row["rg"] . '</h5>
+                    <h5>' . $row["rg"] . '</h5>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="nome">Nome</label>
-                  <h5>'. $row["nome"] . '</h5>
+                  <h5>' . $row["nome"] . '</h5>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="email">E-mail</label>
-                    <h5>'. $row["email"] . '</h5>
+                    <h5>' . $row["email"] . '</h5>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="telefone">Telefone</label>
-                    <h5>'. $row["telefone"] . '</h5>
+                    <h5>' . $row["telefone"] . '</h5>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="endereco">Endereço</label>
-                  <h5>'. $row["endereco"] . '</h5>
+                  <h5>' . $row["endereco"] . '</h5>
                 </div>
 
                 <div class="form-group">
                   <label for="profissao">Profissão</label>
-                  <h5>'. $row["profissao"] . '</h5>
+                  <h5>' . $row["profissao"] . '</h5>
                 </div>
 
                 <div class="form-group">
                 </div>
                 <div class="modal-footer">
                   <a class="btn btn-secondary" href="aluno_consultar.php" role="button">Voltar</a>
-                  <button type="submit" class="btn btn-danger">Apagar</button>
-                  <a class="btn btn-primary" href="aluno_editar.php?cpf='. $row["cpf"] .'" role="button">Editar</a>
+                  <a class="btn btn-danger" href="#" onclick="confirmar('. $row["cpf"] .')"  role="button">Apagar</a>
+                  <a class="btn btn-primary" href="aluno_editar.php?cpf=' . $row["cpf"] . '" role="button">Editar</a>
                 </div>
               </form>
             </div>
@@ -138,7 +118,6 @@
           </div>
         </div>
       </div>');
-
     }
   } else {
     echo "<center><h5>Algo deu errado e o sistema não consegue exibir esses dados...</h5><center>";
@@ -164,10 +143,16 @@
   <!-- Contact Form JavaScript File -->
   <script src="contactform/contactform.js"></script>
 
-  <script>
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
 
 
-
+  <?php
+  $atualizado = $_GET['atualizado'];
+  if ($atualizado == 'true') {
+    echo ('<script>notify("Informações do aluno <strong>atualizadas</strong> ", "success", 5000);</script>');
+  }
+  ?>
 
 </body>
 

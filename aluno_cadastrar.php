@@ -39,40 +39,16 @@
 <body>
 
   <?php
-
   session_start();
 
   include('header.php');
 
   $cpf = $_GET['cpf'];
   $nome = $_GET['nome'];
-
   ?>
 
   <div style="margin-top: 130px;">
   </div>
-
-
-  <?php
-  if ($cpf == 'cadastrado') {
-    echo ('
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2 col-lg-2">
-        </div>
-        <div class="col-md-8 col-lg-8">
-          <div class="alert alert-success" role="alert">
-            Novo aluno cadastrado: <strong>' . $nome . '</strong>.
-          </div>
-        </div>
-        <div class="col-md-2 col-lg-2">
-        </div>
-      </div>
-    </div><br>');
-  }
-  ?>
-  
-
   <div class="container">
     <div class="row">
       <div class="col-md-2 col-lg-2">
@@ -196,6 +172,12 @@
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
 
+
+<?php
+if ($cpf == 'cadastrado') {
+  echo ('<script>notify("Novo aluno cadastrado: <strong>' . $nome . '</strong>.", "success", 5000);</script>');
+}
+?>
 
 </body>
 
