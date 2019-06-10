@@ -41,7 +41,7 @@
 <?php
 include('header.php');
 ?>
-    <div style="margin-top: 300px;">
+    <div style="margin-top: 500px;">
   </div>
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
