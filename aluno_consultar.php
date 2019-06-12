@@ -44,7 +44,7 @@
 
   //Paginação da página
   $paginaAtual = isset($_GET['cpg']) ? $_GET['cpg'] : 1;
-  $resultadosPorPagina = 1;
+  $resultadosPorPagina = 30;
   $proximaPagina = ($paginaAtual * $resultadosPorPagina) - $resultadosPorPagina;
 
 
@@ -128,9 +128,6 @@
 
               <?php
 
-              //FALTA DESENVOLVER UM CONTADOR DE LINHAS NA TABELA
-
-              $total  = 50;
               $quantidadeDeLinks = ceil($total / $resultadosPorPagina);
 
               for ($i = $paginaAtual - 3, $limiteDeLinks = $i + 6; $i <= $limiteDeLinks; $i++) {
@@ -148,7 +145,7 @@
                 }
 
                 if ($i == $paginaAtual)
-                  echo ('<li class="page-item active"><a class="page-link">'.$i.'</a></li>');
+                  echo ('<li class="page-item active"><a class="page-link">' . $i . '</a></li>');
                 else
                   echo '<li class="page-item"><a class="page-link" href="?cpg=' . $i . '">' . $i . ' </a></li>';
               }

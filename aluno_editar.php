@@ -45,7 +45,7 @@
     include('header.php');
     include('validador/mask.php');
     include('php/conexao.php');
-    $cpf = $_GET['cpf'];
+    $cpf = addslashes($_GET['cpf']);
   
     $sql = "SELECT * FROM aluno WHERE cpf='$cpf'";
     $result = $conn->query($sql);

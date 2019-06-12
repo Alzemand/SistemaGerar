@@ -11,16 +11,16 @@ include($file2);
 include($file3);
 
 
-$cpf = $_POST['cpf'];
+$cpf = addslashes($_POST['cpf']);
 $cpf = preg_replace("/[^0-9]/", "", $cpf);
-$rg = $_POST['rg'];
-$nome = $_POST['nome'];
+$rg = addslashes($_POST['rg']);
+$nome = addslashes($_POST['nome']);
 $nome = formataCampo($nome);
 $telefone = $_POST['telefone'];
 $email = $_POST['email'];
-$profissao = $_POST['profissao'];
+$profissao = addslashes($_POST['profissao']);
 $profissao = formataCampo($profissao);
-$endereco = $_POST['endereco'];
+$endereco = addslashes($_POST['endereco']);
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -43,8 +43,8 @@
 
   include('header.php');
 
-  $cpf = $_GET['cpf'];
-  $nome = $_GET['nome'];
+  $cpf = addslashes($_GET['cpf']);
+  $nome = addslashes($_GET['nome']);
   ?>
 
   <div style="margin-top: 130px;">

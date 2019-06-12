@@ -2,7 +2,7 @@
 
 include('conexao.php');
 
-$cpf = $_GET['cpf'];
+$cpf = addslashes($_GET['cpf']);
 $cpf = preg_replace("/[^0-9]/", "", $cpf);
 
 
