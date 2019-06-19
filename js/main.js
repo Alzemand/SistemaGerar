@@ -177,3 +177,13 @@ function confirmar(x){
       window.location.href = link;
   }
 }
+
+// Mascara formulário
+
+$('.telefone').mask('(00) 000000000');
+$('.dinheiro').mask('#.##0,00', {reverse: true});
+$('.cpf').mask('000.000.000-00');
+$('.cnpj').mask('00.000.000/0000-00');
+$('.rg').mask('00.000.000-0');
+$('.cep').mask('00000-000');
+$('.data').mask('00/00/0000');
