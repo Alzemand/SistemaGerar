@@ -169,10 +169,19 @@ function notify(mensagem, tipo, tempo){
 
 //Confirmar exclusão 
 
-function confirmar(x){
+function excluirAluno(x){
   var resultado = confirm("Confirmar a exclusão do aluno?");
   if (resultado == true){
       var link = "php/alunoapagar.php?cpf=";
+      link = link.concat(x);
+      window.location.href = link;
+  }
+}
+
+function excluirInstrutor(x){
+  var resultado = confirm("Confirmar a exclusão do instrutor?");
+  if (resultado == true){
+      var link = "php/instrutorapagar.php?cpf=";
       link = link.concat(x);
       window.location.href = link;
   }

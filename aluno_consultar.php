@@ -110,7 +110,7 @@
                       <a class="btn btn-primary" href="aluno_visualizar.php?cpf=' . $row["cpf"] . '" role="button" ><i class="fa fa-search" title="Visualizar informações completas" aria-hidden="true"></i>
                       </a>
                       <a class="btn btn-primary" href="aluno_editar.php?cpf=' . $row["cpf"] . '" role="button"><i class="fa fa-pencil" title="Editar dados" aria-hidden="true"></i></a>
-                      <a class="btn btn-danger" href="#" onclick="confirmar(' . $row["cpf"] . ')" role="button"><i class="fa fa-trash" title="Apagar" aria-hidden="true"></i></a>
+                      <a class="btn btn-danger" href="#" onclick="excluirAluno(' . $row["cpf"] . ')" role="button"><i class="fa fa-trash" title="Apagar" aria-hidden="true"></i></a>
                       </td>
                   </tr>');
                 $cont = $cont + 1;

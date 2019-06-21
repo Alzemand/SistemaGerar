@@ -13,10 +13,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "DELETE FROM aluno WHERE cpf = $cpf";
+$sql = "DELETE FROM instrutor WHERE cpf = $cpf";
 
 if ($conn->query($sql) === TRUE) {
-    header("location: ../aluno_consultar.php?cpf=apagado");
+    header("location: ../instrutor_consultar.php?cpf=apagado");
 } else {
     echo "Deu um erro fodido no sistema: " . $conn->error;
 }

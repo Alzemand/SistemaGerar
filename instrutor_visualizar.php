@@ -108,7 +108,7 @@
                 </div>
                 <div class="modal-footer">
                   <a class="btn btn-secondary" href="instrutor_consultar.php" role="button">Voltar</a>
-                  <a class="btn btn-danger" href="#" onclick="confirmar('. $row["cpf"] .')"  role="button">Apagar</a>
+                  <a class="btn btn-danger" href="#" onclick="excluirInstrutor('. $row["cpf"] .')"  role="button">Apagar</a>
                   <a class="btn btn-primary" href="instrutor_editar.php?cpf=' . $row["cpf"] . '" role="button">Editar</a>
                 </div>
               </form>
@@ -150,7 +150,7 @@
   <?php
   $atualizado = $_GET['atualizado'];
   if ($atualizado == 'true') {
-    echo ('<script>notify("Informações do aluno <strong>atualizadas</strong> ", "success", 5000);</script>');
+    echo ('<script>notify("Informações do instrutor <strong>atualizadas</strong> ", "success", 5000);</script>');
   }
   ?>
 

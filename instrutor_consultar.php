@@ -110,7 +110,7 @@
                       <a class="btn btn-primary" href="instrutor_visualizar.php?cpf=' . $row["cpf"] . '" role="button" ><i class="fa fa-search" title="Visualizar informações completas" aria-hidden="true"></i>
                       </a>
                       <a class="btn btn-primary" href="instrutor_editar.php?cpf=' . $row["cpf"] . '" role="button"><i class="fa fa-pencil" title="Editar dados" aria-hidden="true"></i></a>
-                      <a class="btn btn-danger" href="#" onclick="confirmar(' . $row["cpf"] . ')" role="button"><i class="fa fa-trash" title="Apagar" aria-hidden="true"></i></a>
+                      <a class="btn btn-danger" href="#" onclick="excluirInstrutor(' . $row["cpf"] . ')" role="button"><i class="fa fa-trash" title="Apagar" aria-hidden="true"></i></a>
                       </td>
                   </tr>');
                 $cont = $cont + 1;
@@ -175,7 +175,7 @@
       <?php
       $cpf = $_GET['cpf'];
       if ($cpf == 'apagado') {
-        echo ('<script>notify("Aluno<strong> excluído</strong> com sucesso", "danger", 5000);</script>');
+        echo ('<script>notify("Instrutor<strong> excluído</strong> com sucesso", "danger", 5000);</script>');
       }
       ?>
 

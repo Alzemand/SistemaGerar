@@ -37,8 +37,8 @@ $_SESSION['endereco'] = $endereco;
 $_SESSION['valor'] = $valor;
 
 if (validaCPF($cpf) == true && validaCampo($nome) == true) {
-    $sql = "INSERT INTO instrutor (cpf, nome, telefone, email, crea, valor)
-    VALUES ('$cpf', '$nome', '$telefone', '$email', '$crea', '$valor')";
+    $sql = "INSERT INTO instrutor (cpf, nome, telefone, email, crea, endereco, valor)
+    VALUES ('$cpf', '$nome', '$telefone', '$email', '$crea', '$endereco', '$valor')";
     if (mysqli_query($conn, $sql)) {
         unset($_SESSION['cpf']);
         unset($_SESSION['nome']);
