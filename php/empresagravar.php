@@ -45,19 +45,19 @@ if (validaCNPJ($cnpj) == true && validaCampo($razao) == true) {
         unset($_SESSION['telefone']);
         unset($_SESSION['email']);
         unset($_SESSION['responsavel']);
-        header("location: ../empresa_cadastrar.php?cnpj=cadastrado&nome=$nome");
+        header("location: ../empresa_cadastrar.php?cnpj=cadastrado&razao=$razao");
     }elseif (mysqli_errno($conn) == 1062) {
         header("location: ../empresa_cadastrar.php?cnpj=duplicado");
     } 
     else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
-} elseif (validaCNPJ($cnpj) == true && validaCampo($nome) == false) {
+} elseif (validaCNPJ($cnpj) == true && validaCampo($razao) == false) {
     header("location: ../empresa_cadastrar.php?nome=erro");
-} elseif (validaCNPJ($cnpj) == false && validaCampo($nome) == true) {
+} elseif (validaCNPJ($cnpj) == false && validaCampo($razao) == true) {
     header("location: ../empresa_cadastrar.php?cnpj=erro");
 } else {
-    header("location: ../empresa_cadastrar.php?cnpj=erro&nome=erro");
+    header("location: ../empresa_cadastrar.php?cnpj=erro&razao=erro");
 }
 
 mysqli_close($conn);
