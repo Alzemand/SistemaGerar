@@ -17,7 +17,7 @@
               <a class="dropdown-item" href="aluno_cadastrar.php">Cadastrar</a>
               <a class="dropdown-item" href="aluno_consultar.php">Consultar</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Relatório Gerecial</a>
+              <a class="dropdown-item" href="#">Relatório Gerencial</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -28,18 +28,18 @@
               <a class="dropdown-item" href="instrutor_cadastrar.php">Cadastrar</a>
               <a class="dropdown-item" href="instrutor_consultar.php">Consultar</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Algo mais aqui</a>
+              <a class="dropdown-item" href="#">Relatório Gerencial</a>
             </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
+              Empresa
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Ação</a>
-              <a class="dropdown-item" href="#">Outra ação</a>
+              <a class="dropdown-item" href="empresa_cadastrar.php">Cadastrar</a>
+              <a class="dropdown-item" href="empresa_consultar.php">Consultar</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Algo mais aqui</a>
+              <a class="dropdown-item" href="#">Relatório Gerencial</a>
             </div>
           </li>
           <li class="nav-item dropdown">
