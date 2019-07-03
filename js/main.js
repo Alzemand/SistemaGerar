@@ -187,6 +187,15 @@ function excluirInstrutor(x){
   }
 }
 
+function excluirEmpresa(x){
+  var resultado = confirm("Confirmar a exclusão da empresa?");
+  if (resultado == true){
+      var link = "php/empresaapagar.php?cnpj=";
+      link = link.concat(x);
+      window.location.href = link;
+  }
+}
+
 // Mascara formulário
 
 $('.telefone').mask('(00) 000000000');
