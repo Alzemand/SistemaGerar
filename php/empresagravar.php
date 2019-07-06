@@ -53,7 +53,7 @@ if (validaCNPJ($cnpj) == true && validaCampo($razao) == true) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 } elseif (validaCNPJ($cnpj) == true && validaCampo($razao) == false) {
-    header("location: ../empresa_cadastrar.php?nome=erro");
+    header("location: ../empresa_cadastrar.php?razao=erro");
 } elseif (validaCNPJ($cnpj) == false && validaCampo($razao) == true) {
     header("location: ../empresa_cadastrar.php?cnpj=erro");
 } else {
