@@ -44,11 +44,12 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
+              Aulas
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Cadastrar</a>
-              <a class="dropdown-item" href="#">Outra ação</a>
+              <a class="dropdown-item" href="#">Abrir turma</a>
+              <a class="dropdown-item" href="#">Fechar turma</a>
+              <a class="dropdown-item" href="#">Cadastrar curso</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Algo mais aqui</a>
             </div>

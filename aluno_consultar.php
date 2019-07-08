@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Sistema Gerar</title>
+  <title>Consultar aluno</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="projeto gerar, projetogerar, nr33, treinamentos, macaé" name="keywords">
   <meta content="Projeto Gerar social - Treinamentos" name="description">
@@ -63,7 +63,7 @@
           <form method="POST" action="aluno_consultar.php">
             <div class="row">
               <div class="col-sm-10 col-md-10 col-lg-10">
-                <input type="text" name="pesquisa" class="form-control" placeholder="Digite aqui">
+                <input type="text" name="pesquisa" class="form-control" placeholder="Digite aqui para pesquisar alunos">
               </div>
               <div class="col-sm-2 col-lg-2 col-md-2" align="center">
                 <button type="submit" class="btn btn-primary left">Pesquisar</button>
