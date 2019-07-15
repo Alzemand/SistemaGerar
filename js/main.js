@@ -196,6 +196,15 @@ function excluirEmpresa(x){
   }
 }
 
+function excluirCurso(x){
+  var resultado = confirm("Confirmar a exclusão do curso?");
+  if (resultado == true){
+      var link = "php/cursoapagar.php?id=";
+      link = link.concat(x);
+      window.location.href = link;
+  }
+}
+
 // Mascara formulário
 
 $('.telefone').mask('(00) 000000000');

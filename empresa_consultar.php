@@ -84,7 +84,7 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">RAZÃO</th>
+              <th scope="col">Razão</th>
               <th scope="col">CNPJ</th>
               <th scope="col">E-mail</th>
               <th scope="col">Telefone</th>

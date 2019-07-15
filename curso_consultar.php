@@ -38,55 +38,29 @@
 
 <body>
 
+
   <?php
   include('header.php');
-  $curso = $_GET['curso'];
-  $nome = $_GET['nome'];
+  include('php/cursoconsulta.php');
   ?>
 
   <div style="margin-top: 130px;">
   </div>
-  <div class="container">
+
+  <div class="col">
     <div class="row">
       <div class="col-md-2 col-lg-2">
       </div>
       <div class="col-md-8 col-lg-8">
         <div class="box">
-          <div class="text-center icone">
-            <i class="fa fa-book"></i>
-            <br>
-            <h5>Cadastrar curso</h5>
-          </div><br>
-          <!-- Formulário -->
-          <form method="POST" action="php\cursogravar.php">
-
-            <div class="form-group">
-              <label for="nome">Nome do curso</label>
-              <input type="text" name="nome" class="form-control" id="nome" required placeholder="NR33" oninvalid="this.setCustomValidity('Campo não pode ficar em branco')"
- oninput="setCustomValidity('')">
-            </div>
-
-            <div class="form-group">
-              <label for="descricao">Descrição do curso</label>
-              <textarea name="descricao" class="form-control" id="descricao" rows="3" required placeholder="Treinamento de Trabalhadores Autorizados e Vigias em Espaços Confinados"></textarea>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <label for="cargahoraria">Carga horária</label>
-                <input type="number" name="cargahoraria" class="form-control" id="cargahoraria" required placeholder="20h" oninvalid="this.setCustomValidity('Quantidade de horas')"
- oninput="setCustomValidity('')">
+          <form method="POST" action="curso_consultar.php">
+            <div class="row">
+              <div class="col-sm-8 col-md-10 col-lg-10">
+                <input type="text" name="pesquisa" class="form-control" placeholder="Digite aqui">
               </div>
-              <div class="form-group col-md-4">
-                <label for="validade">Validade</label>
-                <input type="number" name="validade" class="form-control" id="validade" required placeholder="1 ano" oninvalid="this.setCustomValidity('Se não houver validade, infome 0 (zero)')"
- oninput="setCustomValidity('')">
+              <div class="col-sm-4 col-lg-2 col-md-2" align="center">
+                <button type="submit" class="btn btn-primary left">Pesquisar</button>
               </div>
-            </div>
-
-            <div class="modal-footer">
-              <a class="btn btn-secondary" href="index.php" role="button">Cancelar</a>
-              <button type="submit" class="btn btn-primary">Salvar informações</button>
             </div>
           </form>
         </div>
@@ -95,11 +69,45 @@
       </div>
     </div>
   </div>
-  <br><br><br><br>
 
-  <?php
-  include('footer.php');
-  ?>
+
+  <div class="container">
+    <div class="row">
+
+
+
+      <?php
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+          echo ('
+        <div class="col-lg-4 col-sm-12">
+        <div class="card">
+          <h5 class="card-header">' . $row["nome"] . '</h5>
+          <div class="card-body">
+            <p class="card-text">' . $row["descricao"] . '</p>
+            <hr>
+            <div class="text-right">
+            <a class="btn btn-primary" href="curso_visualizar.php?id=' . $row["id"] . '" role="button" ><i class="fa fa-search" title="Visualizar informações completas" aria-hidden="true"></i></a>
+              <a class="btn btn-primary" href="curso_editar.php?id=' . $row["id"] . '" role="button"><i class="fa fa-pencil" title="Editar dados" aria-hidden="true"></i></a>
+              <a class="btn btn-danger" href="#" onclick="excluirCurso(' . $row["id"] . ')" role="button"><i class="fa fa-trash" title="Apagar" aria-hidden="true"></i></a>
+            </div>         
+              </div>
+        </div><br>
+      </div>
+        ');
+        }
+      } else {
+        echo ('<h3>Sem resultados</h3>');
+      }
+
+      ?>
+
+    </div>
+  </div>
+
+
+
 
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
@@ -113,15 +121,17 @@
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="lib/isotope/isotope.pkgd.min.js"></script>
   <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="js/jquery.mask.min.js"></script>
   <script src="js/main.js"></script>
 
 
   <?php
-  if ($curso == 'cadastrado') {
-    echo ('<script>notify("Novo curso cadastrado: <strong>' . $nome . '</strong>.", "success", 5000);</script>');
+  $cnpj = $_GET['cnpj'];
+  if ($cnpj == 'apagado') {
+    echo ('<script>notify("empresa<strong> excluída</strong> com sucesso", "danger", 5000);</script>');
   }
   ?>
 
