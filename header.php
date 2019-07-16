@@ -49,9 +49,9 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Abrir turma</a>
               <a class="dropdown-item" href="#">Fechar turma</a>
-              <a class="dropdown-item" href="curso_cadastrar.php">Cadastrar curso</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Algo mais aqui</a>
+              <a class="dropdown-item" href="curso_cadastrar.php">Cadastrar curso</a>
+              <a class="dropdown-item" href="curso_consultar.php">Visualizar curso</a>
             </div>
           </li>
           <li class="nav-item dropdown">
