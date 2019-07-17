@@ -2,6 +2,7 @@
 
 include('conexao.php');
 
+$id = $id = addslashes($_POST['id']);
 $nome = addslashes($_POST['nome']);
 $nome = strtoupper($nome);
 $cargahoraria = addslashes($_POST['cargahoraria']);

@@ -50,7 +50,7 @@
     // output data of each row
     while ($row = $result->fetch_assoc()) {
 
-  echo('
+      echo ('
 
   <div style="margin-top: 130px;">
   </div>
@@ -67,27 +67,33 @@
           </div><br>
           <!-- Formulário -->
           <form method="POST" action="php\cursoeditar.php">
-
-            <div class="form-group">
-              <label for="nome">Nome do curso</label>
-              <input type="text" name="nome" class="form-control" id="nome" required placeholder="NR33" value="'.$row["nome"].'"oninvalid="this.setCustomValidity("Campo não pode ficar em branco")"
+            
+            <div class="form-group" style="display:none">
+              <label for="id">id</label>
+              <input type="text" name="id" class="form-control" id="id" required placeholder="id" value="' . $row["id"] . '"oninvalid="this.setCustomValidity("Campo não pode ficar em branco")"
  oninput="setCustomValidity("")">
             </div>
 
             <div class="form-group">
+            <label for="nome">Nome do curso</label>
+            <input type="text" name="nome" class="form-control" id="nome" required placeholder="NR33" value="' . $row["nome"] . '"oninvalid="this.setCustomValidity("Campo não pode ficar em branco")"
+oninput="setCustomValidity("")">
+          </div>
+
+            <div class="form-group">
               <label for="descricao">Descrição do curso</label>
-              <textarea name="descricao" class="form-control" id="descricao" rows="3" required placeholder="Treinamento de Trabalhadores Autorizados e Vigias em Espaços Confinados">'.$row["descricao"].'</textarea>
+              <textarea name="descricao" class="form-control" id="descricao" rows="3" required placeholder="Treinamento de Trabalhadores Autorizados e Vigias em Espaços Confinados">' . $row["descricao"] . '</textarea>
             </div>
 
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="cargahoraria">Carga horária</label>
-                <input type="number" name="cargahoraria" class="form-control" id="cargahoraria" required placeholder="20h" value="'.$row["cargahoraria"].'" oninvalid="this.setCustomValidity("Quantidade de horas")"
+                <input type="number" name="cargahoraria" class="form-control" id="cargahoraria" required placeholder="20h" value="' . $row["cargahoraria"] . '" oninvalid="this.setCustomValidity("Quantidade de horas")"
  oninput="setCustomValidity("")">
               </div>
               <div class="form-group col-md-4">
                 <label for="validade">Validade</label>
-                <input type="number" name="validade" class="form-control" id="validade" required placeholder="1 ano" value="'.$row["validade"].'" oninvalid="this.setCustomValidity("Se não houver validade, infome 0 (zero)")"
+                <input type="number" name="validade" class="form-control" id="validade" required placeholder="1 ano" value="' . $row["validade"] . '" oninvalid="this.setCustomValidity("Se não houver validade, infome 0 (zero)")"
  oninput="setCustomValidity("")">
               </div>
             </div>
@@ -106,12 +112,12 @@
   <br><br><br><br>
   ');
     }
-} else {
-  echo "<center><h5>Algo deu errado e o sistema não consegue exibir esses dados...</h5><center>";
-}
+  } else {
+    echo "<center><h5>Algo deu errado e o sistema não consegue exibir esses dados...</h5><center>";
+  }
 
-$conn->close();
-?>
+  $conn->close();
+  ?>
 
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
