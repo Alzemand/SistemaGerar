@@ -3,12 +3,8 @@
 include('conexao.php');
 
 // Validador
-$path = dirname(__DIR__);
-$file2 = $path . '/validador/campo.php';
-$file3 = $path . '/validador/formatar.php';
-
-include($file2);
-include($file3);
+include('../validador/campo.php');
+include('../validador/formatar.php');
 
 
 $cpf = addslashes($_POST['cpf']);
@@ -35,7 +31,7 @@ $sql = "UPDATE aluno
         WHERE cpf = $cpf";
 
 if ($conn->query($sql) === TRUE) {
-    header("location: ../aluno_visualizar.php?cpf=$cpf&atualizado=true");
+    header("location: ../entities/aluno/aluno_visualizar.php?cpf=$cpf&atualizado=true");
 } else {
     echo "Deu um erro fudido no sistema: " . $conn->error;
 }

@@ -47,19 +47,19 @@ if (validaCPF($cpf) == true && validaCampo($nome) == true) {
         unset($_SESSION['email']);
         unset($_SESSION['endereco']);
         unset($_SESSION['valor']);
-        header("location: ../instrutor_cadastrar.php?cpf=cadastrado&nome=$nome");
+        header("location: ../entities/instrutor/instrutor_cadastrar.php?cpf=cadastrado&nome=$nome");
     }elseif (mysqli_errno($conn) == 1062) {
-        header("location: ../instrutor_cadastrar.php?cpf=duplicado");
+        header("location: ../entities/instrutor/instrutor_cadastrar.php?cpf=duplicado");
     } 
     else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 } elseif (validaCPF($cpf) == true && validaCampo($nome) == false) {
-    header("location: ../instrutor_cadastrar.php?nome=erro");
+    header("location: ../entities/instrutor/instrutor_cadastrar.php?nome=erro");
 } elseif (validaCPF($cpf) == false && validaCampo($nome) == true) {
-    header("location: ../instrutor_cadastrar.php?cpf=erro");
+    header("location: ../entities/instrutor/instrutor_cadastrar.php?cpf=erro");
 } else {
-    header("location: ../instrutor_cadastrar.php?cpf=erro&nome=erro");
+    header("location: ../entities/instrutor/instrutor_cadastrar.php?cpf=erro&nome=erro");
 }
 
 mysqli_close($conn);

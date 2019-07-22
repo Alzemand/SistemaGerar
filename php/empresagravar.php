@@ -3,13 +3,9 @@
 include('conexao.php');
 
 // Validador
-$path = dirname(__DIR__);
-$file = $path . '/validador/cnpj.php';
-$file2 = $path . '/validador/campo.php';
-$file3 = $path . '/validador/formatar.php';
-include($file);
-include($file2);
-include($file3);
+include('../validador/cnpj.php');
+include('../validador/campo.php');
+include('../validador/formatar.php');
 
 
 $cnpj = addslashes($_POST['cnpj']);
@@ -45,19 +41,19 @@ if (validaCNPJ($cnpj) == true && validaCampo($razao) == true) {
         unset($_SESSION['telefone']);
         unset($_SESSION['email']);
         unset($_SESSION['responsavel']);
-        header("location: ../empresa_cadastrar.php?cnpj=cadastrado&razao=$razao");
+        header("location: ../entities/empresa/empresa_cadastrar.php?cnpj=cadastrado&razao=$razao");
     }elseif (mysqli_errno($conn) == 1062) {
-        header("location: ../empresa_cadastrar.php?cnpj=duplicado");
+        header("location: ../entities/empresa/empresa_cadastrar.php?cnpj=duplicado");
     } 
     else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 } elseif (validaCNPJ($cnpj) == true && validaCampo($razao) == false) {
-    header("location: ../empresa_cadastrar.php?razao=erro");
+    header("location: ../entities/empresa/empresa_cadastrar.php?razao=erro");
 } elseif (validaCNPJ($cnpj) == false && validaCampo($razao) == true) {
-    header("location: ../empresa_cadastrar.php?cnpj=erro");
+    header("location: ../entities/empresa/empresa_cadastrar.php?cnpj=erro");
 } else {
-    header("location: ../empresa_cadastrar.php?cnpj=erro&razao=erro");
+    header("location: ../entities/empresa/empresa_cadastrar.php?cnpj=erro&razao=erro");
 }
 
 mysqli_close($conn);

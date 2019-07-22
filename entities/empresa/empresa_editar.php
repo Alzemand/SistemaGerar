@@ -1,40 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-  <meta charset="utf-8">
-  <title>Sistema Gerar</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="projeto gerar, projetogerar, nr33, treinamentos, macaé" name="keywords">
-  <meta content="Projeto Gerar social - Treinamentos" name="description">
-
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
-
-  <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-  <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Theme Name: NewBiz
-    Theme URL: https://bootstrapmade.com/newbiz-bootstrap-business-template/
-    Author: BootstrapMade.com e Edilson Alzemands
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
-</head>
+<?php
+include('../../head.php');
+?>
 
 <body>
 
@@ -42,12 +11,12 @@
   </div>
 
   <?php
-    include('header.php');
-    include('validador/mask.php');
-    include('php/conexao.php');
-    $cpf = addslashes($_GET['cpf']);
+    include('../../header.php');
+    include('../../validador/mask.php');
+    include('../../php/conexao.php');
+    $cnpj = addslashes($_GET['cnpj']);
   
-    $sql = "SELECT * FROM aluno WHERE cpf='$cpf'";
+    $sql = "SELECT * FROM empresa WHERE cnpj='$cnpj'";
     $result = $conn->query($sql);
   
     if ($result->num_rows > 0) {
@@ -64,23 +33,23 @@
               <div class="text-center icone">
                 <i class="fa fa-pencil-square-o"></i>
                 <br>
-                <h5>Editar aluno</h5>
+                <h5>Editar empresa</h5>
               </div><br>
               <!-- Formulário -->
-              <form method="POST" action="php\alunoeditar.php">
+              <form method="POST" action="/SistemaGerar/php/empresaeditar.php">
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="cpf">CPF</label>
-                    <input type="text" name="cpf" class="form-control" id="cpf" value=" ' . mask($row["cpf"], '###.###.###-##') . '" placeholder="123.456.789-09" readonly>
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" name="cnpj" class="form-control" id="cnpj" value=" ' . mask($row["cnpj"], '##.###.###/####-##') . '" readonly>
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="rg">RG</label>
-                    <input type="text" name="rg" class="form-control" id="rg" value="'. $row["rg"] . '">
+                    <label for="inscricao">Inscrição estadual</label>
+                    <input type="text" name="inscricao" class="form-control" id="inscricao" value="'. $row["inscricao"] . '">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="nome">Nome</label>
-                  <input type="text" name="nome" class="form-control" id="nome" value="'. $row["nome"] . '" placeholder="Nome completo">
+                  <label for="razao">Razão social</label>
+                  <input type="text" name="razao" class="form-control" id="razao" value="'. $row["razao"] . '" placeholder="Razão social">
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
@@ -89,7 +58,7 @@
                   </div>
                   <div class="form-group col-md-6">
                     <label for="telefone">Telefone</label>
-                    <input type="text" name="telefone" class="form-control" id="telefone" value="'. $row["telefone"] . '" placeholder="">
+                    <input type="text" name="telefone" class="telefone form-control" id="telefone" value="'. $row["telefone"] . '" placeholder="">
                   </div>
                 </div>
 
@@ -99,8 +68,8 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="profissao">Profissão</label>
-                  <input type="text" name="profissao" class="form-control" id="profissao" value="'. $row["profissao"] . '" placeholder="">
+                  <label for="responsavel">Responsável</label>
+                  <input type="text" name="responsavel" class="form-control" id="responsavel" value="'. $row["responsavel"] . '" placeholder="">
                 </div>
 
                 <div class="form-group">
@@ -143,8 +112,8 @@
   <script src="contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
+  <script src="js/jquery.mask.min.js"></script>
   <script src="js/main.js"></script>
-
 
 </body>
 

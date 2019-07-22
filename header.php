@@ -4,7 +4,7 @@
       <div class="logo float-left">
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
-        <a href="index.php" class="scrollto"><img src="img/pg-logo.png" alt="" class="img-fluid"></a>
+        <a href="/SistemaGerar/index.php" class="scrollto"><img src="/SistemaGerar/img/pg-logo.png" alt="" class="img-fluid"></a>
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
@@ -14,8 +14,8 @@
               Alunos
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="aluno_cadastrar.php">Cadastrar</a>
-              <a class="dropdown-item" href="aluno_consultar.php">Consultar</a>
+              <a class="dropdown-item" href="/SistemaGerar/entities/aluno/aluno_cadastrar.php">Cadastrar</a>
+              <a class="dropdown-item" href="/SistemaGerar/entities/aluno/aluno_consultar.php">Consultar</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Relatório Gerencial</a>
             </div>
@@ -25,8 +25,8 @@
               Instrutor
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="instrutor_cadastrar.php">Cadastrar</a>
-              <a class="dropdown-item" href="instrutor_consultar.php">Consultar</a>
+              <a class="dropdown-item" href="/SistemaGerar/entities/instrutor/instrutor_cadastrar.php">Cadastrar</a>
+              <a class="dropdown-item" href="/SistemaGerar/entities/instrutor/instrutor_consultar.php">Consultar</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Relatório Gerencial</a>
             </div>
@@ -36,8 +36,8 @@
               Empresa
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="empresa_cadastrar.php">Cadastrar</a>
-              <a class="dropdown-item" href="empresa_consultar.php">Consultar</a>
+              <a class="dropdown-item" href="/SistemaGerar/entities/empresa/empresa_cadastrar.php">Cadastrar</a>
+              <a class="dropdown-item" href="/SistemaGerar/entities/empresa/empresa_consultar.php">Consultar</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Relatório Gerencial</a>
             </div>
@@ -50,8 +50,8 @@
               <a class="dropdown-item" href="#">Abrir turma</a>
               <a class="dropdown-item" href="#">Fechar turma</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="curso_cadastrar.php">Cadastrar curso</a>
-              <a class="dropdown-item" href="curso_consultar.php">Visualizar curso</a>
+              <a class="dropdown-item" href="/SistemaGerar/entities/curso/curso_cadastrar.php">Cadastrar curso</a>
+              <a class="dropdown-item" href="/SistemaGerar/entities/curso/curso_consultar.php">Visualizar curso</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -65,7 +65,6 @@
               <a class="dropdown-item" href="#">Algo mais aqui</a>
             </div>
           </li>
-          <!-- <li><a href="#services">Serviços</a></li> -->
         </ul>
       </nav><!-- .main-nav -->
 

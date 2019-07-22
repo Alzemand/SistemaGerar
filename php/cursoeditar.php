@@ -15,7 +15,7 @@ $sql = "UPDATE curso
         WHERE id = '$id'";
 
 if ($conn->query($sql) === TRUE) {
-    header("location: ../curso_visualizar.php?id=$id&atualizado=true");
+    header("location: ../entities/curso/curso_visualizar.php?id=$id&atualizado=true");
 } else {
     echo "Deu um erro fodido no sistema: " . $conn->error;
 }

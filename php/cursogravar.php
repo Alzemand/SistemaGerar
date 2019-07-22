@@ -12,7 +12,7 @@ $sql = "INSERT INTO curso (nome, cargahoraria, descricao, validade)
 VALUES ('$nome', $cargahoraria, '$descricao', $validade)";
 
 if ($conn->query($sql) === TRUE) {
-    header("location: ../curso_cadastrar.php?curso=cadastrado&nome=$nome");
+    header("location: ../entities/curso/curso_cadastrar.php?curso=cadastrado&nome=$nome");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

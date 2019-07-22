@@ -172,7 +172,7 @@ function notify(mensagem, tipo, tempo){
 function excluirAluno(x){
   var resultado = confirm("Confirmar a exclusão do aluno?");
   if (resultado == true){
-      var link = "php/alunoapagar.php?cpf=";
+      var link = "/SistemaGerar/php/alunoapagar.php?cpf=";
       link = link.concat(x);
       window.location.href = link;
   }
@@ -181,7 +181,7 @@ function excluirAluno(x){
 function excluirInstrutor(x){
   var resultado = confirm("Confirmar a exclusão do instrutor?");
   if (resultado == true){
-      var link = "php/instrutorapagar.php?cpf=";
+      var link = "/SistemaGerar/php/instrutorapagar.php?cpf=";
       link = link.concat(x);
       window.location.href = link;
   }
@@ -190,7 +190,7 @@ function excluirInstrutor(x){
 function excluirEmpresa(x){
   var resultado = confirm("Confirmar a exclusão da empresa?");
   if (resultado == true){
-      var link = "php/empresaapagar.php?cnpj=";
+      var link = "/SistemaGerar/php/empresaapagar.php?cnpj=";
       link = link.concat(x);
       window.location.href = link;
   }
@@ -199,7 +199,7 @@ function excluirEmpresa(x){
 function excluirCurso(x){
   var resultado = confirm("Confirmar a exclusão do curso?");
   if (resultado == true){
-      var link = "php/cursoapagar.php?id=";
+      var link = "/SistemaGerar/php/cursoapagar.php?id=";
       link = link.concat(x);
       window.location.href = link;
   }

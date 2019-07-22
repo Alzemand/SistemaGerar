@@ -1,16 +1,9 @@
 <?php
 
 include('conexao.php');
-
-// Validador
-$path = dirname(__DIR__);
-$file = $path . '/validador/cpf.php';
-$file2 = $path . '/validador/campo.php';
-$file3 = $path . '/validador/formatar.php';
-include($file);
-include($file2);
-include($file3);
-
+include('../validador/cpf.php');
+include('../validador/campo.php');
+include('../validador/formatar.php');
 
 $cpf = addslashes($_POST['cpf']);
 $cpf = preg_replace("/[^0-9]/", "", $cpf);
@@ -45,19 +38,19 @@ if (validaCPF($cpf) == true && validaCampo($nome) == true) {
         unset($_SESSION['telefone']);
         unset($_SESSION['profissao']);
         unset($_SESSION['endereco']);
-        header("location: ../aluno_cadastrar.php?cpf=cadastrado&nome=$nome");
+        header("location: ../entities/aluno/aluno_cadastrar.php?cpf=cadastrado&nome=$nome");
     }elseif (mysqli_errno($conn) == 1062) {
-        header("location: ../aluno_cadastrar.php?cpf=duplicado");
+        header("location: ../entities/aluno/aluno_cadastrar.php?cpf=duplicado");
     } 
     else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 } elseif (validaCPF($cpf) == true && validaCampo($nome) == false) {
-    header("location: ../aluno_cadastrar.php?nome=erro");
+    header("location: ../entities/aluno/aluno_cadastrar.php?nome=erro");
 } elseif (validaCPF($cpf) == false && validaCampo($nome) == true) {
-    header("location: ../aluno_cadastrar.php?cpf=erro");
+    header("location: ../entities/aluno/aluno_cadastrar.php?cpf=erro");
 } else {
-    header("location: ../aluno_cadastrar.php?cpf=erro&nome=erro");
+    header("location: ../entities/aluno/aluno_cadastrar.php?cpf=erro&nome=erro");
 }
 
 mysqli_close($conn);

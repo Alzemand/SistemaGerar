@@ -3,13 +3,8 @@
 include('conexao.php');
 
 // Validador
-$path = dirname(__DIR__);
-$file2 = $path . '/validador/campo.php';
-$file3 = $path . '/validador/formatar.php';
-
-include($file2);
-include($file3);
-
+include('../validador/campo.php');
+include('../validador/formatar.php');
 
 $cnpj = addslashes($_POST['cnpj']);
 $cnpj = preg_replace("/[^0-9]/", "", $cnpj);
@@ -35,11 +30,10 @@ $sql = "UPDATE empresa
         WHERE cnpj = $cnpj ";
 
 if ($conn->query($sql) === TRUE) {
-    header("location: ../empresa_visualizar.php?cnpj=$cnpj&atualizado=true");
+    header("location: ../entities/empresa/empresa_visualizar.php?cnpj=$cnpj&atualizado=true");
 } else {
     echo "Deu um erro fodido no sistema: " . $conn->error;
 }
-
 
 mysqli_close($conn);
 

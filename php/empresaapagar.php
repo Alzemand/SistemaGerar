@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 $sql = "DELETE FROM empresa WHERE cnpj = $cnpj";
 
 if ($conn->query($sql) === TRUE) {
-    header("location: ../empresa_consultar.php?cnpj=apagado");
+    header("location: ../entities/empresa/empresa_consultar.php?cnpj=apagado");
 } else {
     echo "Deu um erro fodido no sistema: " . $conn->error;
 }

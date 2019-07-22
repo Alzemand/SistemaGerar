@@ -3,14 +3,9 @@
 include('conexao.php');
 
 // Validador
-$path = dirname(__DIR__);
-$file2 = $path . '/validador/campo.php';
-$file3 = $path . '/validador/formatar.php';
-$file4 = $path . '/validador/dinheiro.php';
-include($file2);
-include($file3);
-include($file4);
-
+include('../validador/campo.php');
+include('../validador/formatar.php');
+include('../validador/dinheiro.php');
 
 $cpf = addslashes($_POST['cpf']);
 $cpf = preg_replace("/[^0-9]/", "", $cpf);
@@ -36,7 +31,7 @@ $sql = "UPDATE instrutor
         WHERE cpf = $cpf";
 
 if ($conn->query($sql) === TRUE) {
-    header("location: ../instrutor_visualizar.php?cpf=$cpf&atualizado=true");
+    header("location: ../entities/instrutor/instrutor_visualizar.php?cpf=$cpf&atualizado=true");
 } else {
     echo "Deu um erro fodido no sistema: " . $conn->error;
 }
