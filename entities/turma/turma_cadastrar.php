@@ -11,8 +11,15 @@ include('../../head.php');
   session_start();
   include('../../header.php');
 
-  $cpf = addslashes($_GET['cpf']);
-  $nome = addslashes($_GET['nome']);
+  $codturma = addslashes($_GET['codturma']);
+  $curso = addslashes($_GET['curso']);
+  $instrutor = addslashes($_GET['instrutor']);
+
+  include('../../php/conexao.php');
+  $sqlcurso = "SELECT * from curso";
+  $sqlinstrutor = "SELECT * from instrutor";
+  $resultcurso = $conn->query($sqlcurso);
+  $resultinstrutor = $conn->query($sqlinstrutor);
   ?>
 
   <div style="margin-top: 130px;">
@@ -26,74 +33,82 @@ include('../../head.php');
           <div class="text-center icone">
             <i class="fa fa-user-plus"></i>
             <br>
-            <h5>Cadastrar aluno</h5>
+            <h5>Cadastrar turma</h5>
           </div><br>
           <!-- Formulário -->
-          <form method="POST" action="/SistemaGerar/php/alunogravar.php">
+          <form method="POST" action="/SistemaGerar/php/turmagravar.php">
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="curso">Curso</label>
+                <select name="curso" class="form-control" id="curso">
+                  <option value="vazio">Selecione um curso...</option>
+                  <?php
+                  if ($resultcurso->num_rows > 0) {
+                    while ($row = $resultcurso->fetch_assoc()) {
+                      echo ('<option value=' . $row["id"] . '>' . $row["nome"] . '</option>');
+                    }
+                  }
+                  ?>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="instrutor">Instrutor</label>
+                <select name="instrutor" class="form-control" id="instrutor">
+                  <option value="vazio">Selecione um instrutor...</option>
+                  <?php
+                  if ($resultinstrutor->num_rows > 0) {
+                    while ($row = $resultinstrutor->fetch_assoc()) {
+                      echo ('<option value=' . $row["cpf"] . '>' . $row["nome"] . '</option>');
+                    }
+                  }
+                  ?>
+                </select>
+              </div>
+            </div>
+
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="cpf">CPF</label>
-
+                <label for="codturma">Código da turma</label>
                 <?php
-                if ($cpf == 'erro') {
+                if ($codturma == 'erro') {
                   echo ('
-                  <input type="text" name="cpf" class="cpf form-control is-invalid" id="cpf" value="' . $_SESSION['cpf'] . '" placeholder="123.456.789-09">
+                  <input type="text" name="codturma" class="form-control is-invalid" id="codturma" autocomplete="off" value="' . $_SESSION['codturma'] . '" required placeholder="A123">
                   <div class="invalid-feedback">
                     Informe um CPF válido.
                   </div>');
-                } elseif ($cpf == 'duplicado') {
+                } elseif ($codturma == 'duplicado') {
                   echo ('
-                  <input type="text" name="cpf" class="cpf form-control is-invalid" id="cpf" value="' . $_SESSION['cpf'] . '" placeholder="123.456.789-09">
+                  <input type="text" name="codturma" class="form-control is-invalid" id="codturma" autocomplete="off" value="' . $_SESSION['codturma'] . '" required placeholder="A123">
                   <div class="invalid-feedback">
                     CPF já cadastrado.
                   </div>');
                 } else {
-                  echo ('<input type="text" name="cpf" class="cpf form-control" id="cpf" value="' . $_SESSION['cpf'] . '" placeholder="123.456.789-09">');
+                  echo ('<input type="text" name="codturma" class="form-control" id="codturma" autocomplete="off" value="' . $_SESSION['codturma'] . '" required placeholder="A123">');
                 }
                 ?>
-
               </div>
+
+
               <div class="form-group col-md-6">
-                <label for="rg">RG</label>
-                <input type="text" name="rg" class="rg form-control" id="rg" value="<?php echo ($_SESSION['rg']); ?>">
+                <label for="valor">Valor</label>
+                <input type="text" name="valor" class="dinheiro form-control" id="valor" autocomplete="off" value="<?php echo $_SESSION['valor'] ?>" required placeholder="">
               </div>
             </div>
-            <div class="form-group">
-              <label for="nome">Nome</label>
 
-              <?php
-              if ($nome == 'erro') {
-                echo ('        
-                  <input type="text" name="nome" class="form-control is-invalid" id="nome" value="' . $_SESSION['nome'] . '" placeholder="Nome completo">
-                  <div class="invalid-feedback">
-                    Campo vazio.
-                  </div>');
-              } else {
-                echo ('<input type="text" name="nome" class="form-control" id="nome" value="' . $_SESSION['nome'] . '"placeholder="Nome completo">');
-              }
-              ?>
-
-            </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="email">E-mail</label>
-                <input type="email" name="email" class="form-control" id="email" value="<?php echo $_SESSION['email'] ?>" placeholder="email@servidor.com">
+                <label for="datainicio">Data início</label>
+                <input type="date" name="datainicio" class="form-control" id="datainicio" value="<?php echo $_SESSION['datainicio'] ?>">
               </div>
               <div class="form-group col-md-6">
-                <label for="telefone">Telefone</label>
-                <input type="text" name="telefone" class="telefone form-control" id="telefone" value="<?php echo $_SESSION['telefone'] ?>" placeholder="">
+                <label for="datafim">Data fim</label>
+                <input type="date" name="datafim" class="form-control" id="datafim" value="<?php echo $_SESSION['datafim'] ?>">
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="endereco">Endereço</label>
-              <input type="text" name="endereco" class="form-control" id="endereco" value="<?php echo $_SESSION['endereco'] ?>" placeholder="Rua dos Bobos, nº 0 - Av. Projetada">
-            </div>
-
-            <div class="form-group">
-              <label for="profissao">Profissão</label>
-              <input type="text" name="profissao" class="form-control" id="profissao" value="<?php echo $_SESSION['profissao'] ?>" placeholder="">
-            </div>
 
             <div class="form-group">
             </div>
@@ -114,6 +129,7 @@ include('../../head.php');
   include('../../scripts.php');
   include('../../footer.php');
 
+
   unset($_SESSION['cpf']);
   unset($_SESSION['rg']);
   unset($_SESSION['nome']);
@@ -121,26 +137,13 @@ include('../../head.php');
   unset($_SESSION['telefone']);
   unset($_SESSION['profissao']);
   unset($_SESSION['endereco']);
+  $conn->close();
 
   if ($cpf == 'cadastrado') {
     echo ('<script>notify("Novo aluno cadastrado: <strong>' . $nome . '</strong>.", "success", 5000);</script>');
   }
   ?>
-  <script>
-    $(function() {
-      $('#profissao').autoComplete({
-        minChars: 1,
-        source: function(term, suggest) {
-          term = term.toLowerCase();
-          var choices = ['ActionScript', 'AppleScript', 'Asp', 'Assembly', 'BASIC', 'Batch', 'C', 'C++', 'CSS', 'Clojure', 'COBOL', 'ColdFusion', 'Erlang', 'Fortran', 'Groovy', 'Haskell', 'HTML', 'Java', 'JavaScript', 'Lisp', 'Perl', 'PHP', 'PowerShell', 'Python', 'Ruby', 'Scala', 'Scheme', 'SQL', 'TeX', 'XML'];
-          var suggestions = [];
-          for (i = 0; i < choices.length; i++)
-            if (~choices[i].toLowerCase().indexOf(term)) suggestions.push(choices[i]);
-          suggest(suggestions);
-        }
-      });
-    });
-  </script>
+
 
 </body>
 

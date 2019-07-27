@@ -13,5 +13,21 @@
 <script src="/SistemaGerar/lib/lightbox/js/lightbox.min.js"></script>
 
 <!-- Template Main Javascript File -->
-<script src="/SistemaGerar/js/jquery.mask.min.js"></script>s
+<script src="/SistemaGerar/js/jquery.mask.min.js"></script>
 <script src="/SistemaGerar/js/main.js"></script>
+
+<!-- <script>
+    $(function() {
+      $('#email').autoComplete({
+        minChars: 1,
+        source: function(term, suggest) {
+          term = term.toLowerCase();
+          var choices = ['ActionScript', 'AppleScript', 'Asp', 'Assembly', 'BASIC', 'Batch', 'C', 'C++', 'CSS', 'Clojure', 'COBOL', 'ColdFusion', 'Erlang', 'Fortran', 'Groovy', 'Haskell', 'HTML', 'Java', 'JavaScript', 'Lisp', 'Perl', 'PHP', 'PowerShell', 'Python', 'Ruby', 'Scala', 'Scheme', 'SQL', 'TeX', 'XML'];
+          var suggestions = [];
+          for (i = 0; i < choices.length; i++)
+            if (~choices[i].toLowerCase().indexOf(term)) suggestions.push(choices[i]);
+          suggest(suggestions);
+        }
+      });
+    });
+  </script> -->
