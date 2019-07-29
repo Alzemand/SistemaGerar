@@ -12,8 +12,6 @@ include('../../head.php');
   include('../../header.php');
 
   $codturma = addslashes($_GET['codturma']);
-  $curso = addslashes($_GET['curso']);
-  $instrutor = addslashes($_GET['instrutor']);
 
   include('../../php/conexao.php');
   $sqlcurso = "SELECT * from curso";
@@ -31,7 +29,7 @@ include('../../head.php');
       <div class="col-md-8 col-lg-8">
         <div class="box">
           <div class="text-center icone">
-            <i class="fa fa-user-plus"></i>
+            <i class="fa fa-users"></i>
             <br>
             <h5>Cadastrar turma</h5>
           </div><br>
@@ -40,8 +38,8 @@ include('../../head.php');
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label for="curso">Curso</label>
-                <select name="curso" class="form-control" id="curso">
-                  <option value="vazio">Selecione um curso...</option>
+                <select name="curso" class="form-control" id="curso" required>
+                  <option value="">Selecione um curso...</option>
                   <?php
                   if ($resultcurso->num_rows > 0) {
                     while ($row = $resultcurso->fetch_assoc()) {
@@ -52,12 +50,11 @@ include('../../head.php');
                 </select>
               </div>
             </div>
-
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label for="instrutor">Instrutor</label>
-                <select name="instrutor" class="form-control" id="instrutor">
-                  <option value="vazio">Selecione um instrutor...</option>
+                <select name="instrutor" class="form-control" id="instrutor" required>
+                  <option value="">Selecione um instrutor...</option>
                   <?php
                   if ($resultinstrutor->num_rows > 0) {
                     while ($row = $resultinstrutor->fetch_assoc()) {
@@ -68,49 +65,35 @@ include('../../head.php');
                 </select>
               </div>
             </div>
-
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="codturma">Código da turma</label>
                 <?php
-                if ($codturma == 'erro') {
+                if ($codturma == 'duplicado') {
                   echo ('
                   <input type="text" name="codturma" class="form-control is-invalid" id="codturma" autocomplete="off" value="' . $_SESSION['codturma'] . '" required placeholder="A123">
                   <div class="invalid-feedback">
-                    Informe um CPF válido.
-                  </div>');
-                } elseif ($codturma == 'duplicado') {
-                  echo ('
-                  <input type="text" name="codturma" class="form-control is-invalid" id="codturma" autocomplete="off" value="' . $_SESSION['codturma'] . '" required placeholder="A123">
-                  <div class="invalid-feedback">
-                    CPF já cadastrado.
+                    Turma já cadastrada.
                   </div>');
                 } else {
                   echo ('<input type="text" name="codturma" class="form-control" id="codturma" autocomplete="off" value="' . $_SESSION['codturma'] . '" required placeholder="A123">');
                 }
                 ?>
               </div>
-
-
               <div class="form-group col-md-6">
                 <label for="valor">Valor</label>
-                <input type="text" name="valor" class="dinheiro form-control" id="valor" autocomplete="off" value="<?php echo $_SESSION['valor'] ?>" required placeholder="">
+                <input type="text" name="valor" class="dinheiro form-control" id="valor" autocomplete="off" value="" required placeholder="">
               </div>
             </div>
-
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="datainicio">Data início</label>
-                <input type="date" name="datainicio" class="form-control" id="datainicio" value="<?php echo $_SESSION['datainicio'] ?>">
+                <input type="date" name="datainicio" class="form-control" id="datainicio" value="" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="datafim">Data fim</label>
-                <input type="date" name="datafim" class="form-control" id="datafim" value="<?php echo $_SESSION['datafim'] ?>">
+                <input type="date" name="datafim" class="form-control" id="datafim" value="" required>
               </div>
-            </div>
-
-
-            <div class="form-group">
             </div>
             <div class="modal-footer">
               <a class="btn btn-secondary" href="index.php" role="button">Cancelar</a>
@@ -127,21 +110,14 @@ include('../../head.php');
 
   <?php
   include('../../scripts.php');
-  include('../../footer.php');
+  include('../../footer.php'); 
 
-
-  unset($_SESSION['cpf']);
-  unset($_SESSION['rg']);
-  unset($_SESSION['nome']);
-  unset($_SESSION['email']);
-  unset($_SESSION['telefone']);
-  unset($_SESSION['profissao']);
-  unset($_SESSION['endereco']);
-  $conn->close();
-
-  if ($cpf == 'cadastrado') {
-    echo ('<script>notify("Novo aluno cadastrado: <strong>' . $nome . '</strong>.", "success", 5000);</script>');
+  if ($codturma == 'cadastrado') {
+    echo ('<script>notify("Turma cadastrada com sucesso", "success", 5000);</script>');
   }
+  
+  unset($_SESSION['codturma']);
+  $conn->close();
   ?>
 
 

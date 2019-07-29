@@ -1,21 +1,34 @@
 <?php
 
-$curso = $_POST['curso'];
-$instrutor = $_POST['instrutor'];
-$codturma = $_POST['codturma'];
-$datainicio = $_POST['datainicio'];
-$datafim = $_POST['datafim'];
+include('conexao.php');
+include('../validador/dinheiro.php');
 
+$codturma = addslashes($_POST['codturma']);
+$codturma = strtoupper($codturma);
+$curso = addslashes($_POST['curso']);
+$instrutor = addslashes($_POST['instrutor']);
+$valor = addslashes($_POST['valor']);
+$valor = dinheiro($valor);
+$datainicio = addslashes($_POST['datainicio']);
+$datafim = addslashes($_POST['datafim']);
 
-echo($curso);
-echo('<br>');
-echo($instrutor);
-echo('<br>');
-echo($codturma);
-echo('<br>');
-echo($datainicio);
-echo('<br>');
-echo($datafim);
+$sql = "INSERT INTO turma (codturma, curso, instrutor, datainicio, datafim, valor)
+VALUES ('$codturma', '$curso', '$instrutor', '$datainicio', '$datafim', '$valor')";
 
+// Iniciar sessão
+session_start();
+$_SESSION['codturma'] = $codturma;
+
+if ($conn->query($sql) === TRUE) {
+    header("location: ../entities/turma/turma_cadastrar.php?codturma=cadastrado");
+    }   
+elseif (mysqli_errno($conn) == 1062) {
+        header("location: ../entities/turma/turma_cadastrar.php?codturma=duplicado");
+    }
+else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+
+mysqli_close($conn);
 
 ?>

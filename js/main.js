@@ -205,6 +205,15 @@ function excluirCurso(x){
   }
 }
 
+function excluirTurma(x){
+  var resultado = confirm("Confirmar a exclusão da turma? (Apaga apenas o cadastro da turma e não os alunos)");
+  if (resultado == true){
+      var link = "/SistemaGerar/php/turmaapagar.php?codturma=";
+      link = link.concat(x);
+      window.location.href = link;
+  }
+}
+
 // Mascara formulário
 
 $('.telefone').mask('(00) 000000000');

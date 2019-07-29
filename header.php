@@ -48,7 +48,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/SistemaGerar/entities/turma/turma_cadastrar.php">Abrir turma</a>
-              <a class="dropdown-item" href="#">Fechar turma</a>
+              <a class="dropdown-item" href="/SistemaGerar/entities/turma/turma_consultar.php"">Visualizar turmas</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="/SistemaGerar/entities/curso/curso_cadastrar.php">Cadastrar curso</a>
               <a class="dropdown-item" href="/SistemaGerar/entities/curso/curso_consultar.php">Visualizar curso</a>
