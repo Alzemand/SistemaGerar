@@ -62,20 +62,20 @@ $result = $conn->query($sql);
         // output data of each row
         while ($row = $result->fetch_assoc()) {
           echo ('
-        <div class="col-lg-4 col-sm-12">
+      <div class="col-lg-4 col-sm-12">
         <div class="card">
           <h5 class="card-header">' . $row["codturma"] . '</h5>
           <div class="card-body">
             <h6><b>Curso:</b> ' . $row["curso"] . '</h6>
             <h6><b>Instrutor:</b> ' . $row["instrutor"] . '</h6>
-            <h6><b>Data:</b> ' . $row["datainicio"] . ' a '. $row["datainicio"] .'</h6>
+            <h6><b>Data:</b> ' . $row["datainicio"] . ' a ' . $row["datainicio"] . '</h6>
             <hr>
             <div class="text-right">
-            <a class="btn btn-primary" href="turma_visualizar.php?codturma=' . $row["codturma"] . '" role="button" ><i class="fa fa-search" title="Visualizar informações completas" aria-hidden="true"></i></a>
+              <a class="btn btn-primary" href="turma_visualizar.php?codturma=' . $row["codturma"] . '" role="button" ><i class="fa fa-search" title="Visualizar informações completas" aria-hidden="true"></i></a>
               <a class="btn btn-primary" href="turma_editar.php?codturma=' . $row["codturma"] . '" role="button"><i class="fa fa-pencil" title="Editar dados" aria-hidden="true"></i></a>
-              <a class="btn btn-danger" href="#" onclick="excluirTurma(' . $row["codturma"] . ')" role="button"><i class="fa fa-trash" title="Apagar" aria-hidden="true"></i></a>
+              <a class="btn btn-danger" href="#" onclick="excluirTurma(' . "'" . $row["codturma"] . "'" . ')" role="button"><i class="fa fa-trash" title="Apagar" aria-hidden="true"></i></a>
             </div>         
-              </div>
+          </div>
         </div><br>
       </div>
         ');
@@ -92,9 +92,10 @@ $result = $conn->query($sql);
   <?php
   include('../../scripts.php');
   $conn->close();
-  $cnpj = $_GET['cnpj'];
-  if ($cnpj == 'apagado') {
-    echo ('<script>notify("empresa<strong> excluída</strong> com sucesso", "danger", 5000);</script>');
+
+  $codturma = $_GET['codturma'];
+  if ($codturma == 'apagado') {
+    echo ('<script>notify("Turma<strong> excluída</strong> com sucesso", "danger", 3000);</script>');
   }
   ?>
 

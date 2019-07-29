@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<title>Visualizar turma</title>
 
 <?php
 include('../../head.php');
@@ -27,6 +28,7 @@ include('../../head.php');
     // output data of each row
     while ($row = $result->fetch_assoc()) {
       echo (' 
+      
       <div style="margin-top: 130px;">
       </div>
       <div class="container">
@@ -36,9 +38,9 @@ include('../../head.php');
           <div class="col-md-8 col-lg-8">
             <div class="box">
               <div class="text-center icone">
-                <i class="fa fa-book"></i>
+                <i class="fa fa-users"></i>
                 <br>
-                <h5>Informações da turma '. $row["codturma"] .'</h5>
+                <h5>Informações da turma ' . $row["codturma"] . '</h5>
               </div><br>
               <!-- Formulário -->
               <form method="POST" action="/SistemaGerar/php/cursogravar.php">
@@ -69,7 +71,7 @@ include('../../head.php');
                 </div>
                 <div class="modal-footer">
                 <a class="btn btn-secondary" href="turma_consultar.php" role="button">Voltar</a>
-                <a class="btn btn-danger" href="#" onclick="excluirTurma(' . $row["codturma"] . ')"  role="button">Apagar</a>
+                <a class="btn btn-danger" href="" onclick="excluirTurma(' . "'" . $row["codturma"] . "'" . ')" role="button">Apagar</a>
                 <a class="btn btn-primary" href="turma_editar.php?codturma=' . $row["codturma"] . '" role="button">Editar</a>
               </div>
                 </div>
@@ -93,8 +95,9 @@ include('../../head.php');
   <?php
   include('../../scripts.php');
   include('../../footer.php');
-  if ($curso == 'cadastrado') {
-    echo ('<script>notify("Novo curso cadastrado: <strong>' . $nome . '</strong>.", "success", 5000);</script>');
+  $atualizado = $_GET['atualizado'];
+  if ($atualizado == 'true') {
+    echo ('<script>notify("Informações da turma <strong>atualizadas</strong> ", "success", 3000);</script>');
   }
   ?>
 

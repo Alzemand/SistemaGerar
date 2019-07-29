@@ -6,7 +6,7 @@
   <meta content="Projeto Gerar social - Treinamentos" name="description">
 
   <!-- Favicons -->
-  <link href="/SistemaGerar/var/www/html/SistemaGerar2/img/favicon.png" rel="icon">
+  <link href="/SistemaGerar/img/favicon.png" rel="icon">
   <link href="/SistemaGerar/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->

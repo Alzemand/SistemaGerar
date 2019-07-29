@@ -62,7 +62,7 @@ $result = $conn->query($sql);
             <p class="card-text">' . $row["descricao"] . '</p>
             <hr>
             <div class="text-right">
-            <a class="btn btn-primary" href="curso_visualizar.php?id=' . $row["id"] . '" role="button" ><i class="fa fa-search" title="Visualizar informações completas" aria-hidden="true"></i></a>
+              <a class="btn btn-primary" href="curso_visualizar.php?id=' . $row["id"] . '" role="button" ><i class="fa fa-search" title="Visualizar informações completas" aria-hidden="true"></i></a>
               <a class="btn btn-primary" href="curso_editar.php?id=' . $row["id"] . '" role="button"><i class="fa fa-pencil" title="Editar dados" aria-hidden="true"></i></a>
               <a class="btn btn-danger" href="#" onclick="excluirCurso(' . $row["id"] . ')" role="button"><i class="fa fa-trash" title="Apagar" aria-hidden="true"></i></a>
             </div>         

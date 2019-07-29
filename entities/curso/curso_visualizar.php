@@ -82,9 +82,12 @@ include('../../head.php');
   <?php
   include('../../scripts.php');
   include('../../footer.php');
-  if ($curso == 'cadastrado') {
-    echo ('<script>notify("Novo curso cadastrado: <strong>' . $nome . '</strong>.", "success", 5000);</script>');
+  $atualizado = $_GET['atualizado'];
+  if ($atualizado == 'true') {
+    echo ('<script>notify("Informações do curso <strong>atualizadas</strong> ", "success", 3000);</script>');
   }
+  ?>
+
   ?>
 
 </body>
