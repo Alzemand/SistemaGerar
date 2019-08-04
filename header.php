@@ -16,6 +16,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/SistemaGerar/entities/aluno/aluno_cadastrar.php">Cadastrar</a>
               <a class="dropdown-item" href="/SistemaGerar/entities/aluno/aluno_consultar.php">Consultar</a>
+              <a class="dropdown-item" href="/SistemaGerar/entities/matricula/matricula_cadastrar.php">Matricular</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Relatório Gerencial</a>
             </div>
