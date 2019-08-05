@@ -3,15 +3,11 @@
 
 <?php
 include('../../head.php');
-
 include('../../php/conexao.php');
 
 $termo = $_POST['pesquisa'];
-
 $sql = "SELECT * FROM curso";
-
 $result = $conn->query($sql);
-
 ?>
 
 <body>
@@ -83,9 +79,12 @@ $result = $conn->query($sql);
   <?php
   include('../../scripts.php');
   $conn->close();
-  $cnpj = $_GET['cnpj'];
-  if ($cnpj == 'apagado') {
-    echo ('<script>notify("empresa<strong> excluída</strong> com sucesso", "danger", 5000);</script>');
+  $curso = $_GET['curso'];
+  if ($curso == 'apagado') {
+    echo ('<script>notify("Curso<strong> excluído</strong> com sucesso", "danger", 3000);</script>');
+  }
+  elseif ($curso == 'chave') {
+    echo ('<script>notify("Esse curso<strong> NÃO</strong> pode ser <strong>EXCLUÍDO</strong>, pois está sendo usado em outra operação. No momento, esta ação não pode ser feita.", "danger", 10000);</script>');
   }
   ?>
 
