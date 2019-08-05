@@ -27,9 +27,10 @@ $_SESSION['telefone'] = $telefone;
 $_SESSION['profissao'] = $profissao;
 $_SESSION['endereco'] = $endereco;
 
+$sql = "INSERT INTO aluno (cpf, rg, nome, telefone, email, profissao, endereco)
+VALUES ('$cpf', '$rg', '$nome', '$telefone', '$email', '$profissao', '$endereco')";
+
 if (validaCPF($cpf) == true && validaCampo($nome) == true) {
-    $sql = "INSERT INTO aluno (cpf, rg, nome, telefone, email, profissao, endereco)
-    VALUES ('$cpf', '$rg', '$nome', '$telefone', '$email', '$profissao', '$endereco')";
     if (mysqli_query($conn, $sql)) {
         unset($_SESSION['cpf']);
         unset($_SESSION['rg']);

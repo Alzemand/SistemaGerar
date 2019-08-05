@@ -22,16 +22,22 @@ include('../../php/conexao.php');
   $cont = 1;
   $termo = $_POST['pesquisa'];
 
-  $sql = "SELECT * FROM aluno 
-  WHERE nome LIKE '%$termo%' 
-  or cpf LIKE '%$termo%'
-  or email LIKE '%$termo%'
-  or telefone LIKE '%$termo%'
-  or profissao LIKE '%$termo%'
-  ORDER BY nome
-  LIMIT $proximaPagina, $resultadosPorPagina";
+  $sql = "SELECT m.id, a.nome as aluno_nome,
+  m.turma as turma,
+  c.nome as curso,
+  e.razao as razao,
+  IF(m.pagamento='1','Pago','Pendente') as pagamento
+  FROM matricula m
+  INNER JOIN empresa e on empresa = e.cnpj
+  INNER JOIN aluno a on aluno = a.cpf
+  INNER JOIN turma t on turma = t.codturma
+  INNER JOIN curso c on t.curso = c.id
+  WHERE a.nome LIKE '%$termo%'
+  OR m.turma LIKE '%$termo%'
+  OR e.razao LIKE '%$termo%'
+  OR c.nome LIKE '%$termo%'";
 
-  $sqlcount = "SELECT * FROM aluno";
+  $sqlcount = "SELECT * FROM matricula";
 
   $result = $conn->query($sql);
 
@@ -53,7 +59,7 @@ include('../../php/conexao.php');
       </div>
       <div class="col-md-8 col-lg-8">
         <div class="box">
-          <form method="POST" action="aluno_consultar.php">
+          <form method="POST" action="matricula_consultar.php">
             <div class="row">
               <div class="col-sm-10 col-md-10 col-lg-10">
                 <input type="text" name="pesquisa" class="form-control" placeholder="Digite aqui para pesquisar alunos">
@@ -78,10 +84,10 @@ include('../../php/conexao.php');
             <tr>
               <th scope="col">#</th>
               <th scope="col">NOME</th>
-              <th scope="col">CPF</th>
-              <th scope="col">E-mail</th>
-              <th scope="col">Telefone</th>
-              <th scope="col">Profissão</th>
+              <th scope="col">TURMA</th>
+              <th scope="col">CURSO</th>
+              <th scope="col">EMPRESA</th>
+              <th scope="col">PAGAMENTO</th>
               <th scope="col">Ações</th>
             </tr>
           </thead>
@@ -93,11 +99,11 @@ include('../../php/conexao.php');
                 echo ('
                   <tr>
                       <th scope="row">' . $cont . '</th>
-                      <td>' . $row["nome"] . '</td>
-                      <td>' . mask($row["cpf"], '###.###.###-##') . '</td>
-                      <td>' . $row["email"] . '</td>
-                      <td>' . $row["telefone"] . '</td>
-                      <td>' . $row["profissao"] . '</td>
+                      <td>' . $row["aluno_nome"] . '</td>
+                      <td>' . $row["turma"] . '</td>
+                      <td>' . $row["curso"] . '</td>
+                      <td>' . $row["razao"] . '</td>
+                      <td>' . $row["pagamento"] . '</td>
           
                       <td>
                       <a class="btn btn-primary" href="aluno_visualizar.php?cpf=' . $row["cpf"] . '" role="button" ><i class="fa fa-search" title="Visualizar informações completas" aria-hidden="true"></i>

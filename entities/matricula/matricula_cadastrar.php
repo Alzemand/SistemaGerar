@@ -3,14 +3,15 @@
 
 <?php
 include('../../head.php');
+$cadastro = $_GET['cadastro'];
 ?>
 
 <body>
 
   <?php
   include('../../header.php');
-
   include('../../php/conexao.php');
+
   $sqlaluno = "SELECT * from aluno";
   $sqlempresa = "SELECT * from empresa";
   $sqlturma = "SELECT t.codturma, c.nome as curso FROM turma t INNER JOIN curso c on c.id = t.curso";
@@ -35,10 +36,20 @@ include('../../head.php');
           </div><br>
           <!-- Formulário -->
           <form method="POST" action="/SistemaGerar/php/matriculagravar.php">
-
             <div class="form-group">
               <label for="nome">Aluno</label>
-              <input type="text" class="custom-select" autocomplete="off" list="aluno_list" id="aluno" name="aluno" placeholder="Digite o nome de um aluno..." required>
+              <?php
+              if ($cadastro == 'erro'){
+                echo('
+                <input type="text" class="custom-select is-invalid" autocomplete="off" list="aluno_list" id="aluno" name="aluno" placeholder="Digite o nome de um aluno..." required>
+                <div class="invalid-feedback">
+                  Verifique se o aluno foi selecionado na lista ou se está cadastrado.
+                </div>');
+              }else{
+                echo('<input type="text" class="custom-select" autocomplete="off" list="aluno_list" id="aluno" name="aluno" placeholder="Digite o nome de um aluno..." required>');
+
+              }
+              ?>
               <datalist id="aluno_list">
                 <select>
                   <?php
@@ -51,12 +62,10 @@ include('../../head.php');
                 </select>
               </datalist>
             </div>
-
             <div class="form-group">
               <label for="turma">Turma</label>
               <select name="turma" class="form-control" required>
                 <option value="">Selecione a turma...</option>
-
                 <?php
                 if ($resultturma->num_rows > 0) {
                   while ($row2 = $resultturma->fetch_assoc()) {
@@ -66,12 +75,10 @@ include('../../head.php');
                 ?>
               </select>
             </div>
-
             <div class="form-group">
               <label for="empresa">Empresa</label>
               <select name="empresa" class="form-control" required>
                 <option value="">Selecione a empresa...</option>
-
                 <?php
                 if ($resultempresa->num_rows > 0) {
                   while ($row1 = $resultempresa->fetch_assoc()) {
@@ -81,14 +88,12 @@ include('../../head.php');
                 ?>
               </select>
             </div>
-
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="desconto">Desconto (valor se aplicável)</label>
                 <input name="desconto" type="text" class="dinheiro form-control" id="" placeholder="0,00">
               </div>
             </div>
-
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="pagamento" id="inlineRadio1" value="1" checked>
               <label class="form-check-label" for="inlineRadio1">Pagamento efetuado</label>
@@ -97,8 +102,6 @@ include('../../head.php');
               <input class="form-check-input" type="radio" name="pagamento" id="inlineRadio2" value="0">
               <label class="form-check-label" for="inlineRadio2">Pagamento pendente</label>
             </div>
-
-
             <div class="form-group">
             </div>
             <div class="modal-footer">
@@ -118,8 +121,8 @@ include('../../head.php');
   include('../../scripts.php');
   include('../../footer.php');
 
-  if ($cpf == 'cadastrado') {
-    echo ('<script>notify("Novo aluno cadastrado: <strong>' . $nome . '</strong>.", "success", 5000);</script>');
+  if ($cadastro == 'true') {
+    echo ('<script>notify("Nova matricula cadastrada", "success", 3000);</script>');
   }
   ?>
 

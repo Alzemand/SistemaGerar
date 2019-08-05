@@ -1,24 +1,28 @@
 <?php
 
-$aluno = $_POST['aluno'];
-$turma = $_POST['turma'];
-$empresa = $_POST['empresa'];
-$desconto = $_POST['desconto'];
-$pagamento = $_POST['pagamento'];
+include('conexao.php');
+include('../validador/dinheiro.php');
 
-echo("Aluno: ");
-echo $aluno;
-echo("<br>");
-echo("Turma: ");
-echo $turma;
-echo("<br>");
-echo("Empresa: ");
-echo $empresa;
-echo("<br>");
-echo("Desconto: ");
-echo $desconto;
-echo("<br>");
-echo("Pagamento: ");
-echo $pagamento;
+$aluno = addslashes($_POST['aluno']);
+$turma = addslashes($_POST['turma']);
+$empresa = addslashes($_POST['empresa']);
+$desconto = addslashes($_POST['desconto']);
+$desconto = dinheiro($desconto);
+$pagamento = addslashes($_POST['pagamento']);
+
+$sql = "INSERT INTO matricula (aluno, empresa, turma, desconto, pagamento)
+VALUES ('$aluno','$empresa', '$turma', '$desconto', '$pagamento')";
+
+
+if ($conn->query($sql) === TRUE) {
+    header("location: ../entities/matricula/matricula_cadastrar.php?cadastro=true"); 
+}elseif (mysqli_errno($conn) == 1452) {
+    header("location: ../entities/matricula/matricula_cadastrar.php?cadastro=erro");
+}
+else {
+    echo "Error: " . $sql . "<br>" . $conn->errno;
+}
+
+$conn->close();
 
 ?>
