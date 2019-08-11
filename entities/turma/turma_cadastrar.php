@@ -115,6 +115,9 @@ include('../../head.php');
   if ($codturma == 'cadastrado') {
     echo ('<script>notify("Turma cadastrada com sucesso", "success", 5000);</script>');
   }
+  elseif ($codturma == 'duplicado') {
+    echo ('<script>notify("Turma já existe no sistema", "danger", 3000);</script>');
+  }
   
   unset($_SESSION['codturma']);
   $conn->close();

@@ -71,6 +71,7 @@ $result = $conn->query($sql);
             <h6><b>Data:</b> ' . $row["datainicio"] . ' a ' . $row["datainicio"] . '</h6>
             <hr>
             <div class="text-right">
+              <a class="btn btn-success" href="#" onclick="fecharTurma(' . "'" . $row["codturma"] . "'" . ')" role="button"><i class="fa fa-check" title="Encerrar" aria-hidden="true"></i></a>
               <a class="btn btn-primary" href="turma_visualizar.php?codturma=' . $row["codturma"] . '" role="button" ><i class="fa fa-search" title="Visualizar informações completas" aria-hidden="true"></i></a>
               <a class="btn btn-primary" href="turma_editar.php?codturma=' . $row["codturma"] . '" role="button"><i class="fa fa-pencil" title="Editar dados" aria-hidden="true"></i></a>
               <a class="btn btn-danger" href="#" onclick="excluirTurma(' . "'" . $row["codturma"] . "'" . ')" role="button"><i class="fa fa-trash" title="Apagar" aria-hidden="true"></i></a>

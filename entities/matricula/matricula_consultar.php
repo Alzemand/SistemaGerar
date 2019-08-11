@@ -106,10 +106,17 @@ include('../../php/conexao.php');
                       <td>' . $row["pagamento"] . '</td>
           
                       <td>
-                      <a class="btn btn-primary" href="aluno_visualizar.php?cpf=' . $row["cpf"] . '" role="button" ><i class="fa fa-search" title="Visualizar informações completas" aria-hidden="true"></i>
+                      <a class="btn btn-primary" href="matricula_visualizar.php?id=' . $row["id"] . '" role="button" ><i class="fa fa-search" title="Visualizar informações completas" aria-hidden="true"></i>
                       </a>
-                      <a class="btn btn-primary" href="aluno_editar.php?cpf=' . $row["cpf"] . '" role="button"><i class="fa fa-pencil" title="Editar dados" aria-hidden="true"></i></a>
-                      <a class="btn btn-danger" href="#" onclick="excluirAluno(' . $row["cpf"] . ')" role="button"><i class="fa fa-trash" title="Apagar" aria-hidden="true"></i></a>
+                      <a class="btn btn-danger" href="#" onclick="excluirMatricula(' . $row["id"] . ')" role="button"><i class="fa fa-trash" title="Apagar" aria-hidden="true"></i></a>
+                      ');
+
+                      if ($row["pagamento"] == "Pendente"){
+                        echo ('<a class="btn btn-success" href="#" onclick="pagarMatricula(' . $row["id"] . ')" role="button"><i class="fa fa-usd" title="Alterar pagamento" aria-hidden="true"></i></a>');
+                      }
+
+                      echo('
+
                       </td>
                   </tr>');
                 $cont = $cont + 1;
@@ -156,9 +163,12 @@ include('../../php/conexao.php');
 
       <?php
       include('../../scripts.php');
-      $cpf = $_GET['cpf'];
-      if ($cpf == 'apagado') {
-        echo ('<script>notify("Aluno<strong> excluído</strong> com sucesso", "danger", 5000);</script>');
+      $id = $_GET['id'];
+      if ($id == 'apagado') {
+        echo ('<script>notify("Matrícula<strong> cancelada</strong> com sucesso", "danger", 3000);</script>');
+      }
+      elseif($id == 'pago'){
+        echo ('<script>notify("Alterado para<strong> PAGO</strong> com sucesso", "success", 3000);</script>');
       }
       $conn->close();
       ?>

@@ -214,6 +214,34 @@ function excluirTurma(x){
   }
 }
 
+function excluirMatricula(x){
+  var resultado = confirm("Confirmar a exclusão da matricula?");
+  if (resultado == true){
+      var link = "/SistemaGerar/php/matriculaapagar.php?id=";
+      link = link.concat(x);
+      window.location.href = link;
+  }
+}
+
+function pagarMatricula(x){
+  var resultado = confirm("O Aluno realizou o pagamento da matrícula?");
+  if (resultado == true){
+      var link = "/SistemaGerar/php/matriculaeditar.php?id=";
+      link = link.concat(x);
+      window.location.href = link;
+  }
+}
+
+function fecharTurma(x){
+  var resultado = confirm("Tem certeza que deseja encerrar a turma e emitir os certificados?");
+  if (resultado == true){
+      var link = "/SistemaGerar/php/turmaencerrar.php?id=";
+      link = link.concat(x);
+      window.location.href = link;
+  }
+}
+
+
 // Mascara formulário
 
 $('.telefone').mask('(00) 000000000');
